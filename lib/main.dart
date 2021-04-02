@@ -1,5 +1,6 @@
 import 'package:dwmgex/exercices/exo1.dart';
 import 'package:dwmgex/exercices/exo4.dart';
+import 'package:dwmgex/exercices/exo5.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -32,11 +33,7 @@ class _MyHomePageState extends State<MyHomePage> {
   int _selectedIndex = 0;
 
   final List<Widget> _widgets = <Widget>[
-    Center(
-      child: Text(
-        'Index 0: Home',
-      ),
-    ),
+    CarouselImages(),
     WindowsLogo(),
     SafeArea(
         child: GestureDetector(
