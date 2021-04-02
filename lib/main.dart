@@ -1,3 +1,4 @@
+import 'package:dwmgex/exercices/exo1.dart';
 import 'package:dwmgex/exercices/exo2.dart';
 import 'package:flutter/material.dart';
 
@@ -28,34 +29,37 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
+  int _selectedIndex = 0;
 
-  void _incrementCounter() {
-    setState(() {
-      _counter++;
-    });
-  }
+  final List<Widget> _widgets = <Widget>[
+    Center(child: Text(
+      'Index 0: Home',
+    ),),
+    WindowsLogo(),
+    FlutterLogoPixel(),
+  ];
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(title: Text('Flutter Demo')),
-        body: SafeArea(
-          child: FlutterLogoPixel(),
-        )
-        // bottomNavigationBar: BottomNavigationBar(
-        //   currentIndex: 0,
-        //   items: [
-        //     BottomNavigationBarItem(icon: Icon(Icons.home), label: ''),
-        //     BottomNavigationBarItem(icon: Icon(Icons.person), label: 'Profile'),
-        //   ],
-        //   selectedItemColor: Colors.red,
-        // ),
-        // floatingActionButton: FloatingActionButton(
-        //   onPressed: _incrementCounter,
-        //   tooltip: 'Increment',
-        //   child: Icon(Icons.add),
-        // ), This trailing comma makes auto-formatting nicer for build methods.
-        );
+      appBar: AppBar(title: Text('Flutter Demo')),
+      body: SafeArea(
+        child: _widgets[_selectedIndex],
+      ),
+      bottomNavigationBar: BottomNavigationBar(
+        currentIndex: _selectedIndex,
+        items: [
+          BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
+          BottomNavigationBarItem(icon: Icon(Icons.work), label: 'Exo 1'),
+          BottomNavigationBarItem(icon: Icon(Icons.work), label: 'Exo 2'),
+        ],
+        selectedItemColor: Colors.indigo,
+        onTap: (index) {
+          setState(() {
+            _selectedIndex = index;
+          });
+        },
+      ),
+    );
   }
 }
