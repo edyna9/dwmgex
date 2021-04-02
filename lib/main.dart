@@ -1,5 +1,5 @@
 import 'package:dwmgex/exercices/exo1.dart';
-import 'package:dwmgex/exercices/exo2.dart';
+import 'package:dwmgex/exercices/exo4.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -32,17 +32,37 @@ class _MyHomePageState extends State<MyHomePage> {
   int _selectedIndex = 0;
 
   final List<Widget> _widgets = <Widget>[
-    Center(child: Text(
-      'Index 0: Home',
-    ),),
+    Center(
+      child: Text(
+        'Index 0: Home',
+      ),
+    ),
     WindowsLogo(),
-    FlutterLogoPixel(),
+    SafeArea(
+        child: GestureDetector(
+      onDoubleTap: () => print('Click'),
+      child: Stack(
+        children: [
+          Container(
+            height: 100,
+            width: 100,
+            color: Colors.blue,
+          ),
+          Container(
+            height: 80,
+            width: 80,
+            color: Colors.red,
+          ),
+        ],
+      ),
+    )),
   ];
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: Text('Flutter Demo')),
+      drawer: CustomDrawer(),
       body: SafeArea(
         child: _widgets[_selectedIndex],
       ),
