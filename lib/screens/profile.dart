@@ -1,3 +1,4 @@
+import 'package:dwmgex/exercices/exo7.dart';
 import 'package:flutter/material.dart';
 
 class ProfilePage extends StatefulWidget {
@@ -24,6 +25,7 @@ class _ProfilePageState extends State<ProfilePage> {
               })
         ],
       ),
+      body: ProfileThumbnail(),
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: _selectedIndex,
         items: [
@@ -36,7 +38,6 @@ class _ProfilePageState extends State<ProfilePage> {
           setState(() {
             _selectedIndex = index;
           });
-          ;
         },
       ),
     );

@@ -15,6 +15,12 @@ class _SchoolPageState extends State<SchoolPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: Text(widget.title)),
+       body: ElevatedButton(
+        onPressed: () {
+          Navigator.pop(context);
+        },
+        child: Text('Back'),
+      ),
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: _selectedIndex,
         items: [

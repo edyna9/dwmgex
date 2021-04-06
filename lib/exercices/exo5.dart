@@ -31,7 +31,6 @@ class _CarouselImagesState extends State<CarouselImages> {
               style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold)),
           SizedBox(height: 15),
           Container(
-            color: Colors.blue,
             height: 50,
             child: ListView(
               scrollDirection: Axis.horizontal,
@@ -47,6 +46,16 @@ class _CarouselImagesState extends State<CarouselImages> {
                             },
                             child: Container(
                               decoration: BoxDecoration(
+                                  boxShadow: [
+                                    BoxShadow(
+                                      color: Colors.grey[400],
+                                      blurRadius: 4,
+                                      offset: Offset(
+                                        0.0,
+                                        4,
+                                      ),
+                                    )
+                                  ],
                                   color: _currentIndex == index
                                       ? Colors.black
                                       : Colors.grey[300],
@@ -67,13 +76,22 @@ class _CarouselImagesState extends State<CarouselImages> {
                       )),
             ),
           ),
-          SizedBox(height: 25,),
+          SizedBox(
+            height: 25,
+          ),
           GestureDetector(
-            onTap: () {
-              Navigator.pushReplacementNamed(context, '/detail');
-            },
             child: Container(
               decoration: BoxDecoration(
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.grey[400],
+                      blurRadius: 4,
+                      offset: Offset(
+                        0.0,
+                        4,
+                      ),
+                    )
+                  ],
                   image: DecorationImage(
                       image: NetworkImage(_images[_currentIndex]),
                       fit: BoxFit.cover),
