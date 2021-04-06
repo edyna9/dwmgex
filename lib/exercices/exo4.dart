@@ -25,10 +25,31 @@ class CustomDrawer extends StatelessWidget {
                         TextStyle(fontWeight: FontWeight.bold, fontSize: 24))),
           ),
           ListTile(
-            title: Text('Item'),
-            leading: Icon(Icons.cloud),
+            title: Text('Home'),
+            leading: Icon(Icons.home),
             onTap: () {
-              Navigator.pop(context);
+              Navigator.pushReplacementNamed(context, '/home');
+            },
+          ),
+          ListTile(
+            title: Text('Detail'),
+            leading: Icon(Icons.details),
+            onTap: () {
+              Navigator.pushNamed(context, '/detail');
+            },
+          ),
+          ListTile(
+            title: Text('Profile'),
+            leading: Icon(Icons.person),
+            onTap: () {
+              Navigator.pushNamed(context, '/profile');
+            },
+          ),
+          ListTile(
+            title: Text('School'),
+            leading: Icon(Icons.school),
+            onTap: () {
+              Navigator.pushReplacementNamed(context, '/school');
             },
           )
         ],

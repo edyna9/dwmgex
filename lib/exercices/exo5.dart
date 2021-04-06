@@ -1,4 +1,3 @@
-import 'package:dwmgex/screens/detail.dart';
 import 'package:flutter/material.dart';
 
 class CarouselImages extends StatefulWidget {
@@ -26,35 +25,41 @@ class _CarouselImagesState extends State<CarouselImages> {
         child: Padding(
       padding: EdgeInsets.all(15.0),
       child: Column(
-        crossAxisAlignment: CrossAxisAlignment.stretch,
+        crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           Text('Welcome',
               style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold)),
           SizedBox(height: 15),
           Expanded(
-            child: ListView.builder(
+            child: ListView(
               padding: EdgeInsets.zero,
               scrollDirection: Axis.horizontal,
               shrinkWrap: true,
-              itemCount: _images.length,
-              itemBuilder: (context, index) {
-                return Padding(
-                  padding: EdgeInsets.all(8.0),
-                  child: GestureDetector(
-                      onTap: () {
-                        setState(() {
-                          _currentIndex = index;
-                        });
-                      },
-                      child: Text('Image ${index + 1}',
-                          style: TextStyle(
-                              fontSize: 24,
-                              fontWeight: FontWeight.bold,
-                              color: _currentIndex == index
-                                  ? Colors.black
-                                  : Colors.grey))),
-                );
-              },
+              children: List.generate(
+                  _images.length,
+                  (index) => Padding(
+                        padding: EdgeInsets.all(8.0),
+                        child: GestureDetector(
+                            onTap: () {
+                              setState(() {
+                                _currentIndex = index;
+                              });
+                            },
+                            child: Container(
+                              decoration: BoxDecoration(
+                                  color: Colors.grey[300],
+                                  borderRadius: BorderRadius.circular(10)),
+                              child: Center(
+                                child: Text('Image ${index + 1}',
+                                    style: TextStyle(
+                                        fontSize: 24,
+                                        fontWeight: FontWeight.bold,
+                                        color: _currentIndex == index
+                                            ? Colors.black
+                                            : Colors.grey)),
+                              ),
+                            )),
+                      )),
             ),
           ),
           GestureDetector(
@@ -67,7 +72,7 @@ class _CarouselImagesState extends State<CarouselImages> {
                       image: NetworkImage(_images[_currentIndex]),
                       fit: BoxFit.cover),
                   borderRadius: BorderRadius.circular(10)),
-              height: 400,
+              height: 300,
               width: 175,
             ),
           )

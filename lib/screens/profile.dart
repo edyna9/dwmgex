@@ -1,29 +1,20 @@
 import 'package:flutter/material.dart';
 
-class DetailPage extends StatefulWidget {
-  DetailPage({Key key, this.title}) : super(key: key);
+class ProfilePage extends StatefulWidget {
+  ProfilePage({Key key, this.title}) : super(key: key);
   final String title;
 
   @override
-  _DetailPageState createState() => _DetailPageState();
+  _ProfilePageState createState() => _ProfilePageState();
 }
 
-class _DetailPageState extends State<DetailPage> {
+class _ProfilePageState extends State<ProfilePage> {
   int _selectedIndex = 0;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text(widget.title),
-        actions: [Icon(Icons.edit)],
-      ),
-      body: ElevatedButton(
-        onPressed: () {
-          Navigator.pop(context);
-        },
-        child: Text('Back'),
-      ),
+      appBar: AppBar(title: Text(widget.title)),
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: _selectedIndex,
         items: [
