@@ -1,3 +1,4 @@
+import 'package:dwmgex/screens/detail.dart';
 import 'package:flutter/material.dart';
 
 class CarouselImages extends StatefulWidget {
@@ -56,16 +57,20 @@ class _CarouselImagesState extends State<CarouselImages> {
               },
             ),
           ),
-          Container(
-            decoration: BoxDecoration(
-              image: DecorationImage(
-                image: NetworkImage(_images[_currentIndex]),
-                fit: BoxFit.cover
-              ),
-              borderRadius: BorderRadius.circular(10)
-            ),
+          GestureDetector(
+            onTap: () {
+              Navigator.pushReplacementNamed(context, '/detail');
+            },
+            child: Container(
+              decoration: BoxDecoration(
+                  image: DecorationImage(
+                      image: NetworkImage(_images[_currentIndex]),
+                      fit: BoxFit.cover),
+                  borderRadius: BorderRadius.circular(10)),
               height: 400,
-              width: 175,),
+              width: 175,
+            ),
+          )
         ],
       ),
     ));

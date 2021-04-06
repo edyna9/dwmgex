@@ -27,6 +27,9 @@ class CustomDrawer extends StatelessWidget {
           ListTile(
             title: Text('Item'),
             leading: Icon(Icons.cloud),
+            onTap: () {
+              Navigator.pop(context);
+            },
           )
         ],
       ),
