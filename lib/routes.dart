@@ -6,7 +6,7 @@ import 'package:dwmgex/screens/update_detail.dart';
 import 'package:dwmgex/screens/update_profile.dart';
 
 final routes = {
-  '/home': (context) => MyHomePage(title: 'Home'),
+  '/home': (context) => MyHomePage(),
   '/detail': (context) => DetailPage(title: 'Detail'),
   '/profile': (context) => ProfilePage(title: 'Profile'),
   '/school': (context) => SchoolPage(title: 'School'),
