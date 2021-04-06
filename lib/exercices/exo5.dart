@@ -30,11 +30,11 @@ class _CarouselImagesState extends State<CarouselImages> {
           Text('Welcome',
               style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold)),
           SizedBox(height: 15),
-          Expanded(
+          Container(
+            color: Colors.blue,
+            height: 50,
             child: ListView(
-              padding: EdgeInsets.zero,
               scrollDirection: Axis.horizontal,
-              shrinkWrap: true,
               children: List.generate(
                   _images.length,
                   (index) => Padding(
@@ -47,21 +47,27 @@ class _CarouselImagesState extends State<CarouselImages> {
                             },
                             child: Container(
                               decoration: BoxDecoration(
-                                  color: Colors.grey[300],
-                                  borderRadius: BorderRadius.circular(10)),
-                              child: Center(
-                                child: Text('Image ${index + 1}',
-                                    style: TextStyle(
-                                        fontSize: 24,
-                                        fontWeight: FontWeight.bold,
-                                        color: _currentIndex == index
-                                            ? Colors.black
-                                            : Colors.grey)),
+                                  color: _currentIndex == index
+                                      ? Colors.black
+                                      : Colors.grey[300],
+                                  borderRadius: BorderRadius.circular(25)),
+                              child: Padding(
+                                padding: EdgeInsets.symmetric(horizontal: 15),
+                                child: Center(
+                                  child: Text('Image ${index + 1}',
+                                      style: TextStyle(
+                                          fontSize: 20,
+                                          fontWeight: FontWeight.w600,
+                                          color: _currentIndex == index
+                                              ? Colors.white
+                                              : Colors.black)),
+                                ),
                               ),
                             )),
                       )),
             ),
           ),
+          SizedBox(height: 25,),
           GestureDetector(
             onTap: () {
               Navigator.pushReplacementNamed(context, '/detail');
@@ -72,8 +78,8 @@ class _CarouselImagesState extends State<CarouselImages> {
                       image: NetworkImage(_images[_currentIndex]),
                       fit: BoxFit.cover),
                   borderRadius: BorderRadius.circular(10)),
-              height: 300,
-              width: 175,
+              height: 400,
+              width: 275,
             ),
           )
         ],

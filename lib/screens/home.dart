@@ -42,9 +42,6 @@ class _MyHomePageState extends State<MyHomePage> {
     return Scaffold(
       appBar: AppBar(
         title: Text(widget.title),
-        actions: [
-          Icon(Icons.edit)
-        ],
       ),
       drawer: CustomDrawer(),
       body: SafeArea(

@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 
-class DetailPage extends StatefulWidget {
-  DetailPage({Key key, this.title}) : super(key: key);
+class UpdateDetailPage extends StatefulWidget {
+  UpdateDetailPage({Key key, this.title}) : super(key: key);
   final String title;
 
   @override
-  _DetailPageState createState() => _DetailPageState();
+  _UpdateDetailPageState createState() => _UpdateDetailPageState();
 }
 
-class _DetailPageState extends State<DetailPage> {
+class _UpdateDetailPageState extends State<UpdateDetailPage> {
   int _selectedIndex = 0;
 
   @override
@@ -16,13 +16,6 @@ class _DetailPageState extends State<DetailPage> {
     return Scaffold(
       appBar: AppBar(
         title: Text(widget.title),
-        actions: [
-          IconButton(
-              icon: Icon(Icons.edit),
-              onPressed: () {
-                Navigator.pushNamed(context, '/detail/update');
-              })
-        ],
       ),
       body: ElevatedButton(
         onPressed: () {

@@ -14,7 +14,16 @@ class _ProfilePageState extends State<ProfilePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text(widget.title)),
+      appBar: AppBar(
+        title: Text(widget.title),
+        actions: [
+          IconButton(
+              icon: Icon(Icons.edit),
+              onPressed: () {
+                Navigator.pushNamed(context, '/profile/update');
+              })
+        ],
+      ),
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: _selectedIndex,
         items: [
@@ -27,6 +36,7 @@ class _ProfilePageState extends State<ProfilePage> {
           setState(() {
             _selectedIndex = index;
           });
+          ;
         },
       ),
     );
