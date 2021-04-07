@@ -2,6 +2,7 @@ import 'package:dwmgex/routes.dart';
 import 'package:dwmgex/screens/loading.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
@@ -18,18 +19,22 @@ class MyApp extends StatelessWidget {
       builder: (context, snapshot) {
         // Cas erreur de chargement
         if (snapshot.hasError) {
-          return Container();
+          return MaterialApp(home: Scaffold());
         }
 
         // Cas chargement réussi
         if (snapshot.connectionState == ConnectionState.done) {
-          return MaterialApp(
-            title: 'Flutter Demo',
-            theme: ThemeData(
-              primarySwatch: Colors.indigo,
+          // Permet d'adapter les Widgets selon la taille de l'écran
+          return ScreenUtilInit(
+            designSize: Size(414, 815),
+            builder: () => MaterialApp(
+              title: 'Flutter Demo',
+              theme: ThemeData(
+                primarySwatch: Colors.indigo,
+              ),
+              routes: routes,
+              initialRoute: '/register',
             ),
-            routes: routes,
-            initialRoute: '/home',
           );
         }
 
